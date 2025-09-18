@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SHUBHAM's CodeQuotient</title>
+    <link rel="icon" style="border-radius:50%;" href="myimage.jpg" type="image/jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    .hero{
+        width: auto;
+        max-height:fit-content;
+    }
+    .header-bottom input{
+        display: none;
+    }
+    /* Main Section Styles */
+    .main1 {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        gap: 15rem;
+        width: 100%; /* Center the content area and add vertical margin */
+        align-items: center;
+        height: 700px;
+        padding-left: 2rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        overflow: hidden;
+        z-index: 0;
+    }
+    .main1::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("main1background.jpg");
+        background-size: cover;
+        background-position: center;
+        filter: blur(8px);
+        z-index: -1;
+    }
+    .main2 {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        background-color: deeppink;
+        gap: 3rem;
+        width: 100%;
+        max-width: 1600px;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+    }
+    .main3 {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width: 1600px;
+        align-items: center;
+        justify-content: center;
+        height: 500px;
+    }
+    .images{
+        display: grid;
+        position: relative;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 0rem;
+        image-rendering: pixelated;
+        width: 800px;
+        height:max-content;
+    }
+    .images img{
+        width: 100%;
+        height: 100%;
+    }
+    .image1{
+        width: 100px;
+        height: 100px;
+        border-right: 4px solid white;
+        border-bottom: 4px solid white;
+        padding-left: 2rem;
+        padding-top: 3rem;
+    }
+    .sidebar-section {
+        display: none; /* Hide sidebar by default */
+    }
+    .image2{
+        width: 100px;
+        height: 100px;
+        padding-top: 1rem;
+        border-bottom: 4px solid white;
+    }
+    .image3{
+        width: 100px;
+        height: 100px;
+        border-right: 4px solid white;
+        padding-bottom: 1rem;
+    }
+    .image4{
+        width: 100px;
+        height: 100px;
+        padding-right: 2rem;
+        padding-bottom: 3rem;
+    }
+    .myinfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        width:400px;
+        max-width: 600px;
+        background-color: #1a1a1a;
+        border-radius: 8px;
+    }
+    .myinfo img{
+        width: 200px;
+        height: 200px;
+        border: 5px solid white;
+        border-radius: 100px;
+    }
+    .myskills h1 {
+        font-size: 2.5rem;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .myskills p {
+        font-size: 1.2rem;
+        color: white;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .myskills ul {
+        list-style: none;
+        padding: 0;
+        width: max-content;
+        display: flex;
+        animation: slide-x 30s linear infinite;
+        gap: 2rem;
+        margin: 0;
+        font-size: 1rem;
+    }
+    .myskills li {
+        background: rgba(245, 244, 244, 0.9);
+        padding: 1rem 2rem;
+        color:black;
+        border-radius: 4px;
+        width: 180px;
+        border-radius: 20px;
+        font-weight: bold;
+        height: 150px;
+        text-align: center;
+    }
+    .myskills button{
+        background:rgba(255, 255, 255, 0.747);
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        color: black;
+        justify-content: center;
+        height:3.54rem;
+        margin-top: 2rem;
+        margin-left: 9rem;
+        border-radius: 40px;
+        border: none;
+        cursor: pointer;
+    } 
+    .myskills button:hover{
+        transition: 0s;
+        box-shadow: 1px 2px 5px #ffffff;
+    }
+    .skillimg img{
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        border: 5px solid rgb(45, 41, 41);
+        border-radius: 100px;
+    }
+    .data-analysis{
+        padding: 2rem 1rem;
+        width: 450px;
+        height: 300px; 
+        max-height: 400px;
+        border: 2px solid white; 
+        border-radius: 50px;
+    }
+    .myprojects , .myskills {
+        overflow: hidden;
+        justify-content: center;
+        background-color: #1a1a1a;
+        width: 600px;
+        box-shadow: 2px 10px 18px  rgb(255, 255, 255);
+        max-width: 1300px;
+        align-items: center;
+        padding: 2rem 3rem;
+        align-items: center;
+        margin: auto;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 20px;
+    }
+    .myprojects h1 {
+        font-size: 2.5rem;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .myprojects ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        animation: slide-x 10s linear infinite;
+        gap: 3rem;
+        width: max-content;
+        font-size: 1rem;
+    }
+    .myprojects li {
+        background: rgba(245, 244, 244, 0.925);
+        padding: 3rem 2rem;
+        border-radius: 4px;
+        border-radius: 20px;
+        width: 180px;
+        height: 150px;
+        font-weight: bold;
+        color: black;
+    }
+    .myprojects button{
+        background: rgba(255, 255, 255, 0.747);
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        height:3.54rem;
+        margin-top: 2rem;
+        margin-left: 9rem;
+        border-radius: 40px;
+        border: none;
+        cursor: pointer;
+    }
+    .myprojects button:hover{
+        transition: 0s;
+        box-shadow: 1px 2px 5px #ffffff;
+    }
+    .button{
+        background-color: deeppink;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+        margin: auto;
+        height: 3.54rem;
+        margin-left: 39rem;
+        border-radius: 40px;
+        margin-bottom: 80px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 10px 10px rgba(186, 3, 97, 0.252);
+    }
+    .mydetails{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1a1a1a;
+    }
+    
+   
+    @keyframes slide-x {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%); /* Adjust for container width */
+        }
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+        .hero {
+            background-color:none;
+            gap: 2rem;
+        }
+        .main1 {
+            flex-direction: column;
+            margin: auto;
+            justify-content: center;
+            max-width: 90vw;
+            height: fit-content;
+            transition: all 0.3s ease-in;
+            transform: scale(1);
+        }
+        .main1::before{
+            background: none;
+        }
+        .images{
+            display: none;
+        }
+        .myinfo {
+            max-width: 100%;
+            margin-top: 1rem;
+            background-color: rgb(255, 20, 147);
+            border-radius: 20px;
+            text-align: center;
+            padding: 1rem 0.5rem;
+        }
+        .myinfo p{
+            font-size: 15px;
+        }
+        .myinfo img {
+            width: 200px;
+            height: 200px;
+        }
+        .main2 {
+            background: none;
+            flex-direction: column;
+            width: 90vw;
+            height: fit-content;
+            padding-top: 1%;
+            gap: 2rem;
+            align-items: center;
+            margin:auto;
+        }
+        .main3 {
+            background: none;
+            flex-direction: column;
+            width: 90vw;
+            height: auto;
+            gap: 2rem;
+            margin:auto;
+        }
+        .data-analysis {
+            font-size: 15px;
+            margin-right: 0%;
+            width: 100vw;
+            max-width: 90vw;
+            height: auto;
+            border: 3px solid deeppink;
+            box-shadow: 2px 10px 18px rgb(255, 9, 153);
+            border-radius: 14px;
+            margin-top: 20px;
+            margin-bottom: 1rem;
+            max-height: none;
+            border-radius: 20px;
+        }
+        .data-analysis h2{
+            margin-bottom: 0.9rem;
+            font-size: 25px;
+            text-align: center;
+            color: deeppink;
+        }
+        .data-analysis p{
+            text-align: center;
+            margin-bottom: 1px;
+            font-size: 15px;
+            font-weight:700;
+        }
+        .mydetails{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            gap: 1rem;
+        }
+        .mydetails h1{
+            padding: 0.5rem;
+            font-size: 2rem;
+            margin-top: 2rem;
+            color: deeppink;
+        }
+        .mydetails p{
+            font-size: 0.7rem;
+        }
+        .myskills, .myprojects{
+            max-width: 80vw;
+            gap: 2rem;
+            padding: 1rem 0.5rem;
+            margin: auto;
+            height: 100vw; /* Fixed height for the viewport */
+            border: 3px solid deeppink;
+            box-shadow: 2px 10px 18px deeppink;
+            border-radius: 10px;
+        }
+        .myskills ul, .myprojects ul {
+            gap: 1rem;
+            width: max-content; /* Allows the list to be wider than the container */
+            height: auto;
+            margin: 0;
+            padding: 0;
+            animation: slide-x-mobile 30s linear infinite;
+        }
+        .myskills li, .myprojects li {
+            background: rgba(245, 244, 244, 0.9);
+            padding: 1rem;
+            color: black;
+            border-radius: 20px;
+            width: 140px; /* Set a fixed width for each list item */
+            font-weight: bold;
+            height: 150px;
+            text-align: center;
+            flex-shrink: 0; /* Prevents items from shrinking */
+            animation: none; /* Removes conflicting animation */
+        }
+        .myskills button, .myprojects button {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+        .button2 {
+            width: 100%;
+            font-size: 1rem;
+            border: none;
+        }
+        .button {
+            margin-left: 0;
+            width: 100%;
+            font-size: 1rem;
+            padding: 0.7rem 0;
+        }
+        .sidebar-section {
+            display: none; /* Show sidebar on mobile */
+            position: absolute;
+            top: 0%; /* Adjust based on header height */
+            left: 0;
+            margin: auto;
+            right: 0;
+            margin-left: 600px;
+            width: 250px;
+            height: calc(100% - 70px); /* Full height minus header */
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        .sidebar-section.open {
+            transform: translateX(0);
+        }
+        .sidebar-section .sidebar-toggle-btn{
+            display: block;
+        }
+        .header-bottom input{
+            display:flex;
+        }
+    }
+    @keyframes slide-x-mobile {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    @media (max-width: 480px) {
+        .navlinks {
+            font-size: 0.85rem;
+        }
+        .main1, .main2, .myskills, .myprojects, .myinfo, .data-analysis {
+            padding: 0.5rem 0.2rem;
+        }
+        .myskills h1, .myprojects h1 {
+            font-size: 1.5rem;
+        }
+        .myskills li, .myprojects li {
+            font-size: 0.95rem;
+            padding: 0.7rem;
+        }
+        .myinfo img {
+            width: 90px;
+            height: 90px;
+        }
+        .button, .button2, .myskills button, .myprojects button {
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7560/7560719.png" alt="logo">
+                    SHUBHAM's CodeQuotient
+                </div>
+                <nav class="nav">
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="#notes">Notes</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="right-section">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <button onclick="location.href='login.html'" class="header-button">Login</button>
+                    <button class="header-button">Signup</button>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <ul class="secondary-nav">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <li class="dropdown">
+                    <a href="#tutorials">Tutorials <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-content">
+                            <a href="python.html">Data Science Python</a>
+                            <a href="sql.html">Sql</a>
+                            <a href="#R programming">R programming</a>
+                            <a href="#Excel">Excel</a>
+                            <a href="#Postgre Sql">Postgre Sql</a>
+                            <a href="#Power Bi">Power Bi</a>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Open sidebar">
+                &#9776;
+                </button>
+                <nav>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="#notes">Notes</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="right-section">
+                    <button onclick="location.href='login.html'" class="header-button">Login</button>
+                    <button class="header-button">Signup</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="background"></div>
+        <div class="main1">
+            <div class="images">
+                <img class="image1" src="https://optimizory.com/assets/img/tech-talk-blog/data-analysis.jpg" alt="image1">
+                <img class="image2" src="https://c0.wallpaperflare.com/preview/241/384/859/analysis-analytics-analyzing-annual.jpg" alt="image2">
+                <img class="image3" src="https://cdn.getmidnight.com/50062ddd13358c02dea31c6e82a524c5/2023/09/AdobeStock_600314909.jpeg" alt="image3">
+                <img class="image4" src="https://png.pngtree.com/thumb_back/fw800/background/20241128/pngtree-modern-data-dashboard-with-floating-icons-image_16700279.jpg" alt="image4">
+            </div>
+            <div class="myinfo">
+                <h2 style="margin-bottom: 1rem; border-bottom: 1px solid white;">About me</h2>
+                <img src="myimage.jpg" alt="My Info">
+                <h1 style="margin-top: 1rem;">SHUBHAM KADAM</h1>
+                <p style="margin-top: 1rem; margin-bottom: 1rem;">Hello everyone I'm a Data Analysis enthusiast. Focusing on Handling and managing large datasets to analyze and visualize data graphically throughout programming language like Python to extract meaningful insights and drive decision-making with the help of multiple Python libraries.
+                </p>
+            </div>
+        </div>
+        <div class="main2">
+            <div class="data-analysis">
+                <h2>What Data Analysis is ?</h2>
+                <p>Data analysis is the process of systematically applying statistical and logical techniques to describe, summarize, and evaluate data. It involves collecting, cleaning, transforming, and modeling data to uncover useful information, draw conclusions, and support decision-making.</p>
+            </div>
+            <div class="data-analysis">
+                <h2>Why Data Analysis is Important ?</h2>
+                <p>Data analysis is important because it helps organizations make informed decisions based on data-driven insights. By analyzing data, businesses can identify trends, patterns, and anomalies that can lead to better strategies and improved outcomes.</p>
+            </div>
+            <div class="data-analysis">
+                <h2>How Data Analysis Works ?</h2>
+                <p>Data analysis works by following a systematic process that includes data collection, data cleaning, data transformation, and data modeling. Various tools and techniques are used at each stage to ensure the accuracy and reliability of the analysis.</p>
+            </div>
+        </div>
+        <div class="mydetails">
+            <h1 style="text-align: center; font-size: 2rem; margin-top: 1rem;">Why SHUBHAM's CodeQuotient?</h1>
+            <p style="text-align: center; margin: 8px; margin-top: 0%;" >This is not a common website, It's a portfolio of mine and is a dedicated learning hub for aspiring and professional data analysts. 
+                It features hands-on project implementations<br> that span data cleaning, visualization statistical analysis, and predictive modeling. Each project is accompanied by real-world datasets,
+                 enabling users to practice<br> 
+                and refine their analytical skills in a practical context. The platform emphasizes actionable insights, storytelling with data, and mastering<br>
+                 tools like Python, Excel, and SQL. With a sleek, user-friendly interface, learners can explore topics at<br> 
+                 their own pace and build a portfolio that truly showcases their capabilities.<br> 
+                 Whether you're preparing for a role or leveling up your skills, this<br> space is designed to help you grow confidently 
+                 as a data analyst.</p>
+            <div class="main3">
+                <div class="myskills">
+                    <h1>My Skills</h1>
+                    <ul>
+                        <li>
+                            <div class="skillimg">
+                                <a href="python.html">
+                                <img src="pyimg.png" alt="PYTHON">
+                                </a>
+                            </div>PYTHON
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="sql.html">
+                                <img src="sqlimg.png" alt="SQL">
+                                </a>
+                            </div>SQL
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="rprogramming.html">
+                                <img src="rprimg.jpg" alt="R PROGRAMMING">
+                                </a>
+                            </div>R
+                        </li>
+                        <li>
+                        <div class="skillimg">
+                            <a href="pandas.html">
+                            <img src="pdimg.png" alt="PANDAS">
+                            </a>
+                        </div>PANDAS
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="numpy.html">
+                                <img src="npimg.png" alt="NUMPY">
+                                </a>
+                            </div>NUMPY
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="matplot.html">
+                                <img src="mtplotimg.png" alt="MATPLOTLIB">
+                                </a>
+                            </div>MATPLOTLIB
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="seaborn.html">
+                                <img src="seabimg.png" alt="SEABORN">
+                                </a>
+                            </div>SEABORN
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="excel.html">
+                                <img src="excelimg.png" alt="EXCEL">
+                                </a>
+                            </div>EXCEL
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="postgresql.html">
+                                <img src="pstgsqlimg.png" alt="POSTGRESQL">
+                                </a>
+                            </div>POSTGRESQL
+                        </li>
+                        <li>
+                            <div class="skillimg">
+                                <a href="powerbi.html">
+                                <img src="pbiimg.png" alt="POWER BI">
+                                </a>
+                            </div>POWER BI
+                        </li>
+                    </ul>
+                    <button onclick="location.href='tutorials.html'">EXPLORE MORE</button>
+                </div>
+                <div class="myprojects">
+                    <h1>My Projects</h1>
+                    <ul>
+                        <li>India census analysis</li>
+                        <li>Netflix user analysis</li>
+                        <li>Covid-19 analysis</li>
+                        <li>Spotify user analysis</li>
+                    </ul>
+                    <button onclick="location.href='projects.html'">EXPLORE MORE</button>
+                </div>  
+            </div>
+            <button class="button2" onclick="location.href='datasets.html'">EXPLORE DATASETS</button>
+        </div>
+    </section>
+  
+    <footer id="contact">
+        <div class="footercontainer">
+            <h3 class="langtitle">Connect with me for the better experience and the knowledge</h3>
+        </div>
+        <div class="social-links">
+                <a href="https://www.youtube.com/@LEARNWITHSKADAM_6457" style="--accent-color:red;" aria-label="Youtube"><img src="http://clipart-library.com/images_k/youtube-logo-transparent-png/youtube-logo-transparent-png-25.png" alt="Youtube" width="33px"></a>
+                <a href="https://github.com/shubh645" style="--accent-color: rgb(52, 52, 52);" aria-label="Github"><img src="https://www.pngarts.com/files/8/Black-Github-Logo-PNG-Image.png" alt="Github" width="35px"></a>
+                <a href="https://www.linkedin.com/in/shubham-kadam-b8856031a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUAYDKko9S02GUSRNrD3vJg%3D%3D" style="--accent-color:rgb(25, 67, 233);" aria-label="Linkedin"><img src="https://logodix.com/logo/245641.png" alt="Linkedin" width="35px"></a>
+        </div>
+            <p style="font-size:bold;">Made with ❤️ by SHUBHAM</p><br>
+            <p>Code is like poetry Some get it,some don't<br>Those who don't get it,are <b style="color: #f80404;"> confused.</b><br>Those who get it,are even <b style="color:#f80404;">more confused.</b></p><br><br>
+            <p class="copyright">© 2025 SHUBHAM's CodeQuotient. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

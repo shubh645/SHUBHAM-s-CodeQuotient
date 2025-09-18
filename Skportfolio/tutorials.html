@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SHUBHAM's CodeQuotient</title>
+    <link rel="icon" style="border-radius:50%;" href="myimage.jpg" type="image/jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       .langinfo button{
+              background-color:deeppink;
+              border-radius: 20px;
+              border: none;
+              color: black;
+              width: auto;
+              font-size: 1.2rem;
+              font-family: 'Poppins', sans-serif;
+              font-weight: bold;
+              margin:1rem;
+              height: 3rem;
+              max-height: 3rem;
+              cursor: pointer;
+       }
+
+       .langinfo button:hover{
+              box-shadow: 0 10px 20px rgb(128, 6, 71);
+              color: white;
+              transform: scale(1.05);
+       }
+       
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7560/7560719.png" alt="logo">
+                    SHUBHAM's CodeQuotient
+                </div>
+                <nav>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="tutorials.html">Tutorials</a></li>
+                        <li><a href="datasets.html">Datasets</a></li>
+                        <li><a href="#notes">Notes</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="right-section">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <button class="header-button">Login</button>
+                    <button class="header-button">Signup</button>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <ul class="secondary-nav">
+                    <input type="text" placeholder="Search..." class="search-bar">
+                    <li class="dropdown">
+                    <a href="#tutorials">Tutorials <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <div class="dropdown-content">
+                            <a href="python.html">Data Science Python</a>
+                            <a href="sql.html">Sql</a>
+                            <a href="#R programming">R programming</a>
+                            <a href="#Excel">Excel</a>
+                            <a href="#Postgre Sql">Postgre Sql</a>
+                            <a href="#Power Bi">Power Bi</a>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="tutorials">
+        <div class="container">
+            <h1 style="font-size: 2rem; color: rgb(255, 8, 127);">Be honest Give your best</h1>
+            <p>A SHUBHAM's CodeQuotient website serves as a comprehensive resource for individuals looking to learn, practice, and advance their skills in data analysis. These platforms typically offer a blend of theoretical knowledge, practical exercises, and real-world project applications, focusing on key tools and technologies. <br>Here's a breakdown of common topics and features you'd find:</p>
+            <p>Core Technologies and Skills:</p>
+        </div>
+            <div class="langgrid" id="lggrid1">
+                <div class="language">
+                    <div class="langimg">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/10/Python-Emblem.png" alt="PYTHON">
+                    </div>
+                    <div class="langinfo">
+                        <h3 class="langtitle">Python</h3>
+                        <p class="langdecs">A powerful and versatile programming language for data analysis. Websites teach data manipulation with libraries like Pandas and NumPy, data visualization with Matplotlib and Seaborn, statistical analysis, and often touch upon machine learning concepts with scikit-learn.</p>
+                        <button onclick="location.href='python.html'">Start Learning</button>
+                    </div>
+                </div>
+                <div class="language">
+                    <div class="langimg">
+                        <img src="https://cdn.freebiesupply.com/logos/large/2x/mysql-5-logo-png-transparent.png" alt="SQL">
+                    </div>
+                    <div class="langinfo">
+                        <h3 class="langtitle">SQL</h3>
+                        <p class="langdecs">Crucial for interacting with and extracting data from databases. Content covers querying, joining tables, filtering, aggregation, and database management concepts.<br><br><br><br></p>
+                        <button onclick="location.href='sql.html'">Start Learning</button>
+                     </div>
+                </div>
+                <div class="language">
+                    <div class="langimg">
+                        <img src="https://download.logo.wine/logo/R_(programming_language)/R_(programming_language)-Logo.wine.png" alt="R">
+                    </div>
+                    <div class="langinfo">
+                        <h3 class="langtitle">R programming</h3>
+                        <p class="langdecs">Widely used programming language for statistical computing and graphics. Courses often cover data wrangling with the Tidyverse, statistical modeling, and advanced data visualization with ggplot2.<br><br><br></p>
+                        <button>Start Learning</button>
+                    </div>
+                </div>
+                <div class="language">
+                    <div class="langimg">
+                        <img src="https://download.logo.wine/logo/Microsoft_Excel/Microsoft_Excel-Logo.wine.png" alt="Excel">
+                    </div>
+                    <div class="langinfo">
+                        <h3 class="langtitle">Excel</h3>
+                        <p class="langdecs">Essential for foundational data manipulation, cleaning, and basic visualization. Topics include formulas, pivot tables, conditional formatting, and charts.<br><br><br><br></p>
+                        <button>Start Learning</button>
+                    </div>
+                </div>
+                <div class="language">
+                    <div class="langimg">
+                        <img src="https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_251be2af3ae607c45c14e816eaa1cf41/postgresql.png" alt="Postgre Sql">
+                    </div>
+                    <div class="langinfo">
+                        <h3 class="langtitle">Postgre SQL</h3>
+                        <p class="langdecs">PostgreSQL is a Relational Database Management System (RDBMS), and more specifically, an Object-Relational Database Management System (ORDBMS). It's a powerful and sophisticated piece of software that uses SQL to store, manage, and retrieve data.</p>
+                        <button>Start Learning</button>
+                    </div>
+                </div>
+                <div class="language">
+                    <div class="langimg">
+                        <img src="https://1000logos.net/wp-content/uploads/2022/12/Power-BI-Logo-2013.png" alt="Power bi">
+                    </div>
+                    <div class="langinfo">
+                        <h3 class="langtitle">Power Bi</h3>
+                        <p class="langdecs">Power BI is a Microsoft-powered business intelligence tool that helps transform raw data into interactive dashboards and actionable insights. It allow users to connect to various data sources, clean and shape data and visualize it using charts, graphs and reports all with minimal coding.</p>
+                        <button>Start Learning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </section>
+    <footer id="contact">
+        <div class="footercontainer">
+            <h3 class="langtitle">Connect with me for the better experience and the knowledge</h3>
+        </div>
+        <div class="social-links">
+                <a href="https://www.youtube.com/@LEARNWITHSKADAM_6457" style="--accent-color:red;" aria-label="Youtube"><img src="http://clipart-library.com/images_k/youtube-logo-transparent-png/youtube-logo-transparent-png-25.png" alt="Youtube" width="33px"></a>
+                <a href="https://github.com/shubh645" style="--accent-color: rgb(52, 52, 52);" aria-label="Github"><img src="https://www.pngarts.com/files/8/Black-Github-Logo-PNG-Image.png" alt="Github" width="35px"></a>
+                <a href="https://www.linkedin.com/in/shubham-kadam-b8856031a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUAYDKko9S02GUSRNrD3vJg%3D%3D" style="--accent-color:rgb(25, 67, 233);" aria-label="Linkedin"><img src="https://logodix.com/logo/245641.png" alt="Linkedin" width="35px"></a>
+        </div>
+            <p style="font-size:bold;">Made with ❤️ by SHUBHAM</p><br>
+            <p>Code is like poetry Some get it,some don't<br>Those who don't get it,are <b style="color: #f80404;"> confused.</b><br>Those who get it,are even <b style="color:#f80404;">more confused.</b></p><br><br>
+            <p class="copyright">© 2025 SHUBHAM's CodeQuotient. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
